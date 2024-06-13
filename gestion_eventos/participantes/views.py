@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import ParticipantForm
 from .models import Participant
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Participant
 
 def participant_list(request):
     form = ParticipantForm(request.POST or None)
@@ -19,8 +18,12 @@ def participant_list(request):
     return render(request, "participantes/participant_list.html", {'form': form, 'participants': participants})
 
 def confirm_delete_participant(request, participant_id):
-    participant = get_object_or_404(Participant, id=participant_id)
-    
+    try:
+        participant = Participant.objects.get(id=participant_id)
+    except Participant.DoesNotExist:
+        messages.error(request, 'El participante no existe.')
+        return redirect('participant_list')
+
     if request.method == 'POST':
         participant.delete()
         messages.success(request, 'El participante ha sido eliminado con éxito.')
@@ -31,10 +34,12 @@ def confirm_delete_participant(request, participant_id):
 def delete_participant(request, participant_id):
     try:
         participant = Participant.objects.get(id=participant_id)
-        participant.delete()
-        messages.success(request, 'Participante eliminado con éxito.')
     except Participant.DoesNotExist:
         messages.error(request, 'El participante no existe.')
+        return redirect('participant_list')
+    
+    participant.delete()
+    messages.success(request, 'Participante eliminado con éxito.')
     return redirect('participant_list')
 
 def edit_participant(request, participant_id):
@@ -44,14 +49,14 @@ def edit_participant(request, participant_id):
         messages.error(request, 'El participante no existe.')
         return redirect('participant_list')
 
-    form = ParticipantForm(request.POST or None, instance=participant)
-    if request.method == 'POST' and form.is_valid():
-        try:
+    if request.method == 'POST':
+        form = ParticipantForm(request.POST, instance=participant)
+        if form.is_valid():
             form.save()
             messages.success(request, 'Participante actualizado con éxito.')
             return redirect('participant_list')
-        except Exception as e:
-            messages.error(request, f'Ocurrió un error al actualizar el participante: {e}')
+    else:
+        form = ParticipantForm(instance=participant)
     return render(request, "participantes/edit_participant.html", {'form': form})
 
 @csrf_exempt

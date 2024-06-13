@@ -22,3 +22,4 @@ urlpatterns = [
     path('', include('eventos.urls')),
     path('participantes/', include('participantes.urls')),
 ]
+

@@ -1,63 +1,243 @@
+/* Variables CSS para colores */
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #5f6368;
+    --danger-color: #ea4335;
+    --success-color: #34a853;
+    --warning-color: #fbbc05;
+    --text-color: #e0e0e0;
+    --background-color: rgba(0, 0, 0, 0.7);
+    --light-background: rgba(255, 255, 255, 0.8);
+    --form-background: rgba(255, 255, 255, 0.1);
+    --alert-success-bg: #d4edda;
+    --alert-success-border: #c3e6cb;
+    --alert-danger-bg: #f8d7da;
+    --alert-danger-border: #f5c6cb;
+    --alert-warning-bg: #fff3cd;
+    --alert-warning-border: #ffeeba;
+}
+
+/* Estilos básicos del cuerpo */
 body {
-    background-image: url('/images/space-background.jpg');
+    background-image: url('/static/images/space-background.jpg');
     background-size: cover;
     background-attachment: fixed;
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-header, footer {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
+/* Estilos para el encabezado y pie de página */
+header,
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
     padding: 10px 0;
     text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Añadir sombra */
 }
 
-h1, h2 {
-    color: #ffffff;
+h1 {
+    font-size: 2.5rem;
+    /* Aumentar el tamaño de la fuente */
+    font-weight: bold;
+    margin-bottom: 0;
 }
 
-form {
+nav a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    /* Añadir efecto hover */
+    border-radius: 5px;
+}
+
+/* Estilos para los formularios */
+form {
+    background-color: var(--form-background);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Añadir sombra */
 }
 
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form input[type="time"],
+form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    background-color: var(--light-background);
+    color: #000;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Sombra interna */
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="date"]:focus,
+form input[type="time"]:focus,
+form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    /* Sombra azul */
+}
+
+/* Estilos para los elementos de la lista */
 .list-group-item {
     margin-bottom: 10px;
     border: none;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Añadir transición */
 }
 
+.list-group-item:hover {
+    transform: translateY(-5px);
+    /* Efecto de elevación */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Sombra */
+}
+
+.list-group-item h5 {
+    font-size: 1.5rem;
+    /* Aumentar el tamaño del nombre del evento */
+    margin-bottom: 10px;
+    /* Añadir espacio inferior */
+}
+
+.list-group-item .content {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.list-group-item .buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Estilos para los botones */
 .btn {
     border-radius: 50px;
     transition: all 0.3s ease;
+    margin: 5px;
+    text-decoration: none;
+    padding: 10px 20px;
+    /* Aumentar el padding para un mejor aspecto */
+    font-size: 0.9rem;
+    /* Aumentar el tamaño de la fuente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Añadir sombra */
 }
 
-.btn-primary:hover, .btn-secondary:hover, .btn-danger:hover {
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra más grande */
 }
 
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #ffffff;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: #ffffff;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: #ffffff;
+}
+
+.btn-status {
+    border: 2px solid var(--success-color);
+    /* Borde verde para el botón de estado */
+    color: var(--success-color);
+    /* Texto verde */
+    background-color: transparent;
+    /* Fondo transparente */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-status.inactive {
+    border-color: var(--warning-color);
+    /* Borde amarillo para estado inactivo */
+    color: var(--warning-color);
+    /* Texto amarillo */
+}
+
+.btn-status:hover {
+    background-color: var(--success-color);
+    /* Fondo verde al pasar el ratón */
+    color: #ffffff;
+    /* Texto blanco al pasar el ratón */
+}
+
+.btn-status.inactive:hover {
+    background-color: var(--warning-color);
+    /* Fondo amarillo al pasar el ratón */
+    color: #ffffff;
+    /* Texto blanco al pasar el ratón */
+}
+
+/* Estilos para los enlaces de navegación */
 .nav-link {
     font-size: 1.2rem;
     padding: 10px;
     border-radius: 5px;
     color: #fff;
+    text-decoration: none;
 }
 
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.btn-status.btn-success {
-    background-color: green;
-    color: white;
-}
-
-.btn-status.btn-warning {
-    background-color: orange;
-    color: white;
+/* Estilos para las entradas de formulario */
+.form-control {
+    background-color: var(--light-background);
+    border: none;
+    color: #000;
+    border-radius: 0.25rem;
+    margin-bottom: 10px;
 }
 
 .form-check-input {
@@ -67,26 +247,12 @@ form {
 }
 
 .form-check-input:checked {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .form-check-label {
     margin-left: 0.5em;
-}
-
-.btn-status {
-    margin-right: 0.5em;
-}
-
-.btn-status.inactive {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
-.btn-status:not(.inactive) {
-    background-color: #28a745;
-    border-color: #28a745;
 }
 
 .form-check {
@@ -94,6 +260,97 @@ form {
     align-items: center;
 }
 
-.form-check-input {
-    margin-right: 0.5rem;
+/* Estilos para mensajes de alerta */
+.alert-messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 80%;
+    max-width: 600px;
+}
+
+.alert {
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    /* Aumentar tamaño de fuente */
+    font-weight: bold;
+    /* Texto en negrita */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Sombra para hacerla más visible */
+    text-align: center;
+    /* Centrar el texto */
+}
+
+.alert-success {
+    background-color: var(--alert-success-bg);
+    border: 1px solid var(--alert-success-border);
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: var(--alert-danger-bg);
+    border: 1px solid var(--alert-danger-border);
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: var(--alert-warning-bg);
+    border: 1px solid var(--alert-warning-border);
+    color: #856404;
+}
+
+/* Ajustes adicionales para la responsividad */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .list-group-item {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .list-group-item .buttons {
+        margin-top: 10px;
+    }
+
+    footer {
+        padding: 5px 0;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .list-group-item {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .list-group-item .buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .list-group-item .buttons .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
 }

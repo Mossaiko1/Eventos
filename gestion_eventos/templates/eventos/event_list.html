@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Eventos{% endblock %}
+
+{% block content %}
+<h2 class="text-center my-4">Lista de Eventos</h2>
+
+{% if messages %}
+<ul class="list-group mb-4">
+    {% for message in messages %}
+    <li class="list-group-item {% if message.tags %}{{ message.tags }}{% endif %}">
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="post" class="mb-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+<ul class="list-group">
+    {% for event in events %}
+    <li class="list-group-item">
+        <div class="content">
+            <h5>{{ event.name_event }}</h5>
+            <p>{{ event.date }} | {{ event.time }} | {{ event.location }}</p>
+            <p>{{ event.description }}</p>
+            <p>Capacidad: {{ event.capacity }}</p>
+        </div>
+        <div class="buttons">
+            <a href="{% url 'edit_event' event.id %}" class="btn btn-secondary btn-sm">
+                <i class="fas fa-edit"></i> Editar
+            </a>
+            <a href="{% url 'confirm_delete_event' event.id %}" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash-alt"></i> Eliminar
+            </a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

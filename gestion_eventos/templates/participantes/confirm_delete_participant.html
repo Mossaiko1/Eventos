@@ -2,7 +2,7 @@
 {% block title %}Confirmar Eliminación{% endblock %}
 
 {% block content %}
-<h2>¿Estás seguro que deseas eliminar este participante?</h2>
+<h2 class="text-center my-4">¿Estás seguro que deseas eliminar este participante?</h2>
 <p><strong>{{ participant.first_name }} {{ participant.last_name }}</strong></p>
 <p>{{ participant.email }}</p>
 <p>{{ participant.phone_number }}</p>
@@ -10,7 +10,11 @@
 
 <form method="post">
     {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a href="{% url 'participant_list' %}" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i> Eliminar
+    </button>
+    <a href="{% url 'participant_list' %}" class="btn btn-secondary">
+        <i class="fas fa-times"></i> Cancelar
+    </a>
 </form>
 {% endblock %}

@@ -3,8 +3,8 @@ from .views import participant_list, edit_participant, confirm_delete_participan
 
 urlpatterns = [
     path('', participant_list, name='participant_list'),
-    path('editar/<int:participant_id>/', edit_participant, name='edit_participant'),
-    path('eliminar/<int:participant_id>/', confirm_delete_participant, name='confirm_delete_participant'),
-    path('eliminar-confirmado/<int:participant_id>/', delete_participant, name='delete_participant'),
-    path('cambiar_estado/', change_status, name='change_status'),
-]
+    path('edit/<int:participant_id>/', edit_participant, name='edit_participant'),
+    path('delete/<int:participant_id>/', confirm_delete_participant, name='confirm_delete_participant'),
+    path('delete/<int:participant_id>/', delete_participant, name='delete_participant'),
+    path('change_status/', change_status, name='change_status'),
+] 
