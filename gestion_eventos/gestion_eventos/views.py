@@ -10,7 +10,7 @@ def loguear(request):
         auth_user = authenticate(username = user, password = passw)
         if auth_user is not None:
             login(request, auth_user)
-            return render(request, 'participantes/participant_list.html')
+            return render(request, 'base.html')
         else:
             error = 'Usuario o contraseña incorrectos'
             return render(request, 'login.html', {'error': error})
