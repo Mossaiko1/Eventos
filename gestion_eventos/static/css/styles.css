@@ -1,27 +1,28 @@
 /* Variables CSS para colores */
 :root {
-    --primary-color: #1a73e8;
-    --secondary-color: #5f6368;
-    --danger-color: #ea4335;
-    --success-color: #34a853;
-    --warning-color: #fbbc05;
-    --text-color: #e0e0e0;
-    --background-color: rgba(0, 0, 0, 0.7);
-    --light-background: rgba(255, 255, 255, 0.8);
-    --form-background: rgba(255, 255, 255, 0.1);
-    --alert-success-bg: #d4edda;
-    --alert-success-border: #c3e6cb;
-    --alert-danger-bg: #f8d7da;
-    --alert-danger-border: #f5c6cb;
-    --alert-warning-bg: #fff3cd;
-    --alert-warning-border: #ffeeba;
+    --primary-color: #1a73e8; /* # Color primario */
+    --secondary-color: #5f6368; /* # Color secundario */
+    --danger-color: #ea4335; /* # Color de peligro */
+    --success-color: #34a853; /* # Color de éxito */
+    --warning-color: #fbbc05; /* # Color de advertencia */
+    --text-color: #e0e0e0; /* # Color del texto */
+    --background-color: rgba(0, 0, 0, 0.7); /* # Color de fondo con transparencia */
+    --light-background: rgba(255, 255, 255, 0.8); /* # Fondo claro con transparencia */
+    --form-background: rgba(255, 255, 255, 0.1); /* # Fondo del formulario con transparencia */
+    --alert-success-bg: #d4edda; /* # Fondo de alerta de éxito */
+    --alert-success-border: #c3e6cb; /* # Borde de alerta de éxito */
+    --alert-danger-bg: #f8d7da; /* # Fondo de alerta de peligro */
+    --alert-danger-border: #f5c6cb; /* # Borde de alerta de peligro */
+    --alert-warning-bg: #fff3cd; /* # Fondo de alerta de advertencia */
+    --alert-warning-border: #ffeeba; /* # Borde de alerta de advertencia */
 }
 
 /* Estilos básicos del cuerpo */
 body {
-    background-image: url('/static/images/space-background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/space-background.jpg');
     background-size: cover;
     background-attachment: fixed;
+    background-position: center;
     font-family: 'Nunito', sans-serif;
     color: var(--text-color);
     margin: 0;
@@ -38,27 +39,69 @@ footer {
     text-align: center;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Añadir sombra */
 }
 
-h1 {
+header {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
     font-size: 2.5rem;
-    /* Aumentar el tamaño de la fuente */
-    font-weight: bold;
-    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 nav a {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     padding: 10px 20px;
     color: var(--text-color);
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
+    color: var(--primary-color);
     background-color: rgba(255, 255, 255, 0.1);
-    /* Añadir efecto hover */
+    transform: translateY(-2px);
     border-radius: 5px;
+}
+
+/* Estilos para la sección de bienvenida */
+.welcome-section {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+    border-radius: 15px;
+    padding: 50px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Asegura que el texto esté centrado */
+    max-width: 800px; /* Limita el ancho máximo de la sección */
+    margin: 50px auto; /* Centra la sección en la página */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-section:hover {
+    transform: translateY(-10px); /* Suave elevación al pasar el ratón */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-title {
+    font-size: 3rem; /* Tamaño de fuente mayor */
+    color: #ffffff; /* Color blanco para el título */
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para mejorar legibilidad */
+}
+
+.welcome-text {
+    font-size: 1.4rem; /* Tamaño de fuente mayor */
+    color: #e0e0e0; /* Color claro para el texto */
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.8; /* Mayor espaciado entre líneas */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra suave para el texto */
 }
 
 /* Estilos para los formularios */
@@ -70,7 +113,6 @@ form {
     max-width: 600px;
     margin: 0 auto 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Añadir sombra */
 }
 
 form input[type="text"],
@@ -86,7 +128,6 @@ form textarea {
     background-color: var(--light-background);
     color: #000;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    /* Sombra interna */
 }
 
 form input[type="text"]:focus,
@@ -97,7 +138,6 @@ form textarea:focus {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-    /* Sombra azul */
 }
 
 /* Estilos para los elementos de la lista */
@@ -113,21 +153,16 @@ form textarea:focus {
     justify-content: space-between;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Añadir transición */
 }
 
 .list-group-item:hover {
     transform: translateY(-5px);
-    /* Efecto de elevación */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Sombra */
 }
 
 .list-group-item h5 {
     font-size: 1.5rem;
-    /* Aumentar el tamaño del nombre del evento */
     margin-bottom: 10px;
-    /* Añadir espacio inferior */
 }
 
 .list-group-item .content {
@@ -148,25 +183,19 @@ form textarea:focus {
     margin: 5px;
     text-decoration: none;
     padding: 10px 20px;
-    /* Aumentar el padding para un mejor aspecto */
     font-size: 0.9rem;
-    /* Aumentar el tamaño de la fuente */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Añadir sombra */
+}
+
+.btn-lg {
+    padding: 12px 30px;
+    font-size: 1.1rem;
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: #ffffff;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover,
-.btn-danger:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Sombra más grande */
 }
 
 .btn-secondary {
@@ -187,80 +216,12 @@ form textarea:focus {
     color: #ffffff;
 }
 
-.btn-status {
-    border: 2px solid var(--success-color);
-    /* Borde verde para el botón de estado */
-    color: var(--success-color);
-    /* Texto verde */
-    background-color: transparent;
-    /* Fondo transparente */
-    transition: background-color 0.3s ease, color 0.3s ease;
+.btn:hover, .btn-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.btn-status.inactive {
-    border-color: var(--warning-color);
-    /* Borde amarillo para estado inactivo */
-    color: var(--warning-color);
-    /* Texto amarillo */
-}
-
-.btn-status:hover {
-    background-color: var(--success-color);
-    /* Fondo verde al pasar el ratón */
-    color: #ffffff;
-    /* Texto blanco al pasar el ratón */
-}
-
-.btn-status.inactive:hover {
-    background-color: var(--warning-color);
-    /* Fondo amarillo al pasar el ratón */
-    color: #ffffff;
-    /* Texto blanco al pasar el ratón */
-}
-
-/* Estilos para los enlaces de navegación */
-.nav-link {
-    font-size: 1.2rem;
-    padding: 10px;
-    border-radius: 5px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Estilos para las entradas de formulario */
-.form-control {
-    background-color: var(--light-background);
-    border: none;
-    color: #000;
-    border-radius: 0.25rem;
-    margin-bottom: 10px;
-}
-
-.form-check-input {
-    width: 1.25em;
-    height: 1.25em;
-    border-radius: 0.25em;
-}
-
-.form-check-input:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.form-check-label {
-    margin-left: 0.5em;
-}
-
-.form-check {
-    display: flex;
-    align-items: center;
-}
-
-/* Estilos para mensajes de alerta */
+/* Estilos para los mensajes de alerta */
 .alert-messages {
     position: fixed;
     top: 20px;
@@ -276,13 +237,9 @@ form textarea:focus {
     padding: 15px;
     border-radius: 5px;
     font-size: 1.2rem;
-    /* Aumentar tamaño de fuente */
     font-weight: bold;
-    /* Texto en negrita */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Sombra para hacerla más visible */
     text-align: center;
-    /* Centrar el texto */
 }
 
 .alert-success {
@@ -335,6 +292,14 @@ form textarea:focus {
     .nav-link {
         margin-bottom: 10px;
     }
+
+    .welcome-title {
+        font-size: 2.5rem; /* Ajuste de tamaño para pantallas más pequeñas */
+    }
+
+    .welcome-text {
+        font-size: 1.2rem; /* Ajuste de tamaño para pantallas más pequeñas */
+    }
 }
 
 @media (max-width: 576px) {
@@ -352,5 +317,13 @@ form textarea:focus {
     .list-group-item .buttons .btn {
         width: 100%;
         margin: 5px 0;
+    }
+
+    .welcome-title {
+        font-size: 2rem; /* Ajuste de tamaño para pantallas más pequeñas */
+    }
+
+    .welcome-text {
+        font-size: 1rem; /* Ajuste de tamaño para pantallas más pequeñas */
     }
 }

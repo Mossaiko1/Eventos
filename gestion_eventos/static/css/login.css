@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #ff5f7e; /* Pink tone from the image */
+    --secondary-color: #6c757d; /* Muted grey */
+    --background-color: #1b1b1b; /* Dark background */
+    --form-background: rgba(44, 44, 44, 0.9); /* Galactic gray with opacity */
+    --text-color: #ffffff; /* White text */
+    --input-background: #3a3a3a; /* Darker input background */
+    --error-color: #d93025; /* Red error text */
+    --button-hover: #e04662; /* Darker pink for hover effect */
+}
+
+body {
+    background-image: url('/static/images/space-background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.login-container {
+    height: 100vh;
+}
+
+.login-card {
+    background-color: var(--form-background);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem; /* Adding padding to the card */
+}
+
+.login-logo {
+    max-width: 80px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem; /* Space between logo and title */
+}
+
+.form-label {
+    color: var(--text-color);
+    margin-bottom: 0.5rem; /* Space between label and input */
+}
+
+.form-control {
+    background-color: var(--input-background);
+    border: none;
+    color: var(--text-color);
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 1rem; /* Space between inputs */
+}
+
+.form-control:focus {
+    background-color: var(--input-background);
+    border: 1px solid var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px var(--primary-color); /* Adding a shadow effect when focused */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover);
+    border-color: var(--button-hover);
+}
+
+.text-danger {
+    color: var(--error-color);
+}
+
+.text-muted {
+    color: var(--secondary-color);
+}
